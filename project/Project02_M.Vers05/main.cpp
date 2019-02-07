@@ -2,11 +2,12 @@
  * File:   main.cpp
  * Author: Miguel Alva Patino
  * Created on January 31, 2019
- * Purpose:  Project 1: BlackJack Mike_1
+ * Purpose:  Project02: BlackJack Mike_1
  */
 
 //System Libraries Here
  #include <iostream>
+#include <fstream>
  #include <iomanip>
  #include <cstdlib>
  #include <ctime>
@@ -17,8 +18,13 @@ using namespace std;
 
 //Global Constants Only, No Global Variables
 //Like PI, e, Gravity, or conversions
+ const int DECKSIZE = 14;
 
 //Function Prototypes Here
+
+
+//This will allow the user and the dealer to play against each other
+int plyAgst(int, int);
 
 //This Prototype is responsible for the dealer getting his/her card
 float dealr(int);
@@ -49,6 +55,7 @@ int main(int argc, char** argv) {
     int num1, num2, num3, numD1, numD2, numD3;
     char letter;
     
+  
  
 //Initialize or input 
    
@@ -62,10 +69,10 @@ int main(int argc, char** argv) {
    
    cout << "====================== Let's Begin ==================================" << endl;
   
-   //dealer hand
-//   cout << "Dealer Hand = "; dealr(numD1);
+
    
-   
+
+   cout << "Your hand       = ";
    
     
    
@@ -83,18 +90,20 @@ int main(int argc, char** argv) {
         letter = 'K';
         cout <<letter;
         num1 =10;
+      
     }
     if (num1 == 12 ){
         letter = 'Q';
         cout <<letter;
         num1 =10;
+      
     }
     if (num1 == 13){
         letter = 'J';
         cout << letter;
         num1 =10;
+        
     }
-    
     
     
     //If Card 1 is an Ace
@@ -112,7 +121,7 @@ int main(int argc, char** argv) {
         
     }
     
-    //cout << num1 << ", ";
+        cout << " " << num1 << ", ";
     
     
     //Getting Card 2 From the Dealer
@@ -148,9 +157,10 @@ int main(int argc, char** argv) {
         cin >> choice;
         num2 = choice;
     }
-    
+    cout << num2;
      //user hand
-        cout << "Your Hand = " << num1<< ", " <<num2;
+   
+      
         cout <<endl;
 //        cout << num2 << endl ;                                
         cout << "Your Hand Total =  " << num1 + num2 << endl << endl;
@@ -158,7 +168,7 @@ int main(int argc, char** argv) {
         cout << endl;
         
         
-                            cout << "Dealer Hand = "; dealr(numD1);
+                            cout << "Dealer Hand       =  "; dealr(numD1);
                             
         
         
@@ -190,6 +200,9 @@ do  {
     cout << "Do you want another card? (y/n): ";  
     cin >> hit;
     
+    if (hit == 'n' || hit == 'N'){
+        
+    }
     if (hit == 'y' || hit == 'Y' ){
             
   
@@ -277,9 +290,14 @@ return 0;
 }
 
 
+int plyAgst(int, int){
+    
+   
+    
+}
 
 float dealr(int numD1){
-    int numD2,numd3;
+    int numD2,numD3;
     char letter;
     
     //The dealer will now have the ability to be dealt random card from [1-14]
@@ -323,6 +341,7 @@ float dealr(int numD1){
     cout << numD2 <<endl;
      
     cout << "Dealer Hand Total =  " << numD1 + numD2 << endl << endl;
+    numD3 = numD1 + numD2;
 }
    
 
@@ -335,6 +354,7 @@ void print(int n){
                 << " has a value of " <<static_cast<int> (cardVal(i)) <<endl;
     }
 }
+
 
 
 string cardSut(int i){

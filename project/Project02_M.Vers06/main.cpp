@@ -310,7 +310,9 @@ return 0;
 }
 
 
-int plyAgst(int numD3, int numD4){
+//int plyAgst(int numD3, int numD4){
+//    
+//}
 //  int hit;
 //    char letter;
 //            
@@ -429,7 +431,7 @@ int plyAgst(int numD3, int numD4){
 //     
 //    cout << "Dealer Hand Total =  " << numD1 + numD2 << endl << endl;
 //    numD3 = numD1 + numD2;
-}
+
    
 
 void print(int n){
@@ -469,4 +471,6 @@ char cardVal(int i){
         
         return imod13<11?imod13:10;
 }
+    
+
     
